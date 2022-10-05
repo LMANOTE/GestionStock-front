@@ -1,0 +1,28 @@
+<div class="col">
+  <div class="row m-3">
+    <div class="col-md-8 p-0">
+      <h1>Liste de materiels</h1>
+    </div>
+    <div class="col-md-4" style="text-align: right">
+      <app-button-action
+        (clickEvent)="nouvelArticle()"
+      ></app-button-action>
+    </div>
+    <div class="alert alert-danger" *ngIf="errorMesg">
+      {{errorMesg}}
+    </div>
+  </div>
+  <div class="col m-3">
+    <app-detail-article
+      *ngFor="let mat of listmateriel"
+      [materiel]="mat"
+      (suppressionResult)="handleSuppression($event)"
+    >
+    </app-detail-article>
+  </div>
+  <div class="row mb-3">
+    <div class="col-md-12 text-center" *ngIf="listmateriel.length > 0">
+      <app-pagination></app-pagination>
+    </div>
+  </div>
+</div>

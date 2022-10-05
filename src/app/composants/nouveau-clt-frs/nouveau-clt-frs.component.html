@@ -1,0 +1,64 @@
+<div class="col mb-3">
+  <div class="col-md-12 mb-3 mt-3">
+    <button (click)="fileInput.click()"  style="background-color: transparent;border: none;">
+      <img [src]="imgUrl" class="rounded-circle" width="200px" height="200px">
+      <input hidden type="file" #fileInput (change)="OnFileInput(fileInput.files)">
+    </button>
+  </div>
+  <hr>
+  <div class="col-md-12">
+    <div class="col-md-12 mb-3">
+      <h2><i class="fa fa-info-circle blue-color" aria-hidden="true"></i>&nbsp;Information {{origin}}</h2>
+    </div>
+    <div class="alert-danger"  *ngIf="errorMsg">
+      <div *ngFor="let msg for errorMsg"></div>
+        {{ errorMsg }}
+    </div>
+    <div class="col-md-12">
+      <form>
+        <div class="row mb-3">
+          <div class="col">
+            <input type="text" class="form-control" name="nom" [(ngModel)]="clienttechnicien.nom" placeholder="Nom">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" name="adresse1" [(ngModel)]="clienttechnicien.adresse1" placeholder="Adresse 1">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col">
+            <input type="text" class="form-control" name="prenom" [(ngModel)]="clienttechnicien.prenom" placeholder="Prenom">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control"  name="email" [(ngModel)]="clienttechnicien.email" placeholder="E-mail">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col">
+            <input type="text" class="form-control" name="ville" [(ngModel)]="clienttechnicien.ville" placeholder="Ville">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" name="codePostal" [(ngModel)]="clienttechnicien.codePostal" placeholder="Code Postal">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col">
+            <input type="text" class="form-control" name="pays" [(ngModel)]="clienttechnicien.pays" placeholder="Pays">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" name="num_tele" [(ngModel)]="clienttechnicien.num_tele" placeholder="Telephone">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="col-md-12" style="text-align: right">
+    <button class="btn btn-danger mr-3" (click)="cancelClick()">
+      <i class="fa fa-ban" aria-hidden="true"></i>&nbsp;Annuler
+    </button>
+    <button class="btn btn-primary" (click)="saveClick()">
+      <i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp;Enregistrer
+    </button>
+  </div>
+</div>
+

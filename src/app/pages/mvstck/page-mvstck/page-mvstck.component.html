@@ -1,0 +1,39 @@
+<div class="col">
+  <div class="row m-3">
+    <div class="col-md-8 p-0">
+      <h1>Mouvement du stock</h1>
+    </div>
+    <div class="col-md-4" style="text-align: right">
+      <app-button-action
+          [isExporterVisible]="false"
+          [isNouveauVisible]="false"
+      ></app-button-action>
+    </div>
+  </div>
+
+  <div class="col m-3">
+    <div class="accordion" id="accordionExample">
+      <div class="card mb-2">
+        <div class="card-header" id="headingOne">
+          <h2 class="mb-0">
+            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              <app-detatil-mvt-stk-materiel></app-detatil-mvt-stk-materiel>
+            </button>
+          </h2>
+        </div>
+
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample" style="max-height: 250px;
+        overflow-y: scroll"       >
+          <div class="card-body">
+            <app-detail-mvt-stck></app-detail-mvt-stck>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-md-12 text-center">
+      <app-pagination></app-pagination>
+    </div>
+  </div>
+</div>

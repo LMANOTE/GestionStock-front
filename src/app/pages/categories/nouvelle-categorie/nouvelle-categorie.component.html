@@ -1,0 +1,32 @@
+<div class="col mb-3">
+
+  <div class="col-md-12">
+    <div class="col-md-12 mb-3 mt-3">
+      <h2>Nouvelle Categorie</h2>
+    </div>
+
+    <div class="col-md-12">
+      <form #addForm="ngForm" (ngSubmit)="enregistrerCategorie()">
+        <div class="row mb-3">
+          <div class="col">
+            <input type="text" class="form-control" name="code" [(ngModel)]="categorie.code" placeholder="Code Categorie">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col">
+            <input type="text" class="form-control" name="designation" [(ngModel)]="categorie.designation" placeholder="Description">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="col-md-12 text-right " >
+    <button class="btn btn-danger mr-3" (click)="cancel()">
+      <i class="fa fa-ban" aria-hidden="true"></i>&nbsp;Annuler
+    </button>
+    <button class="btn btn-primary mr-3" (click)="enregistrerCategorie()">
+      <i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp;Enregistrer
+    </button>
+  </div>
+</div>

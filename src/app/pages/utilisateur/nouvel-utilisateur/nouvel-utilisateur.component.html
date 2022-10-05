@@ -1,0 +1,58 @@
+<div class="col mb-3">
+  <div class="col-md-12 mb-3">
+    <img src="assets/img.png" class="rounded-circle" width="200px" height="200px">
+  </div>
+  <hr>
+  <div class="col-md-12">
+    <div class="col-md-12 mb-3">
+      <h2><i class="fa fa-info-circle blue-color" aria-hidden="true"></i>&nbsp;Information du utilisateur</h2>
+    </div>
+
+    <div class="col-md-12">
+      <form>
+        <div class="row mb-3">
+          <div class="col">
+            <input type="text" class="form-control" name="nom" [(ngModel)]="utilisateur.nom" placeholder="Nom">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" name="adresse1" [(ngModel)]="utilisateur.adresse1" placeholder="Adresse 1">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col">
+            <input type="text" class="form-control" name="prenom" [(ngModel)]="utilisateur.prenom" placeholder="Prenom">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" name="email" [(ngModel)]="utilisateur.email" placeholder="E-mail">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col">
+            <input type="text" class="form-control" name="ville" [(ngModel)]="utilisateur.ville" placeholder="Ville">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" name="codePostal" [(ngModel)]="utilisateur.codePostal" placeholder="Code Postal">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col">
+            <input type="text" class="form-control" name="pays" [(ngModel)]="utilisateur.pays" placeholder="Pays">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" name="num_tele" [(ngModel)]="utilisateur.num_tele" placeholder="Telephone">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="col-md-12 text-right" >
+    <button class="btn btn-danger mr-3" (click)="cancel()">
+      <i class="fa fa-ban" aria-hidden="true"></i>&nbsp;Annuler
+    </button>
+    <button class="btn btn-primary" (click)="enregistrerUtilisateur()">
+      <i class="fa fa-floppy-o" aria-hidden="true" ></i>&nbsp;Enregistrer
+    </button>
+  </div>
+</div>
+

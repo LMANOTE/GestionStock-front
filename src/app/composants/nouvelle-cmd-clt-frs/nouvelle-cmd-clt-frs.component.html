@@ -1,0 +1,87 @@
+<div class="col mb-3">
+
+  <div class="col-md-12">
+    <div class="col-md-12 mb-3 mt-3">
+      <h2>Nouvelle commande {{origin}}</h2>
+    </div>
+
+    <div class="row custom-border p-3">
+      <div class="col-md-5 custom-border-right">
+        <form>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="1">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="22/09/2022">
+          </div>
+          <div class="form-group">
+            <select class="form-control"  name="cltfrs" [(ngModel)]="selectedclientTechnicien">
+              <option selected>Selectionner un {{origin}}</option>
+              <option *ngFor="let obj of ListClientTechnicien" [ngValue]="obj">
+                {{obj.nom}}&nbsp;{{obj.prenom}}</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-5 custom-border-right">
+        <div class="col">
+          <div class="row">
+            <div class="col-md-1"><i class="fa fa-info-circle blue-color" aria-hidden="true"></i></div>
+            <div class="col-md-11">{{selectedclientTechnicien.nom}}</div>
+          </div>
+          <div class="row">
+            <div class="col-md-1"><i class="fa fa-info-circle blue-color" aria-hidden="true"></i></div>
+            <div class="col-md-11">{{selectedclientTechnicien.prenom}}</div>
+          </div>
+          <div class="row">
+            <div class="col-md-1"><i class="fa fa-phone blue-color" aria-hidden="true"></i></div>
+            <div class="col-md-11">{{selectedclientTechnicien.num_tele}}</div>
+          </div>
+          <div class="row">
+            <div class="col-md-1"><i class="fa fa-hourglass-start blue-color" aria-hidden="true"></i></div>
+            <div class="col-md-11">EN PREPARATION</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2 text-center">
+        <img [src]="selectedclientTechnicien.photo ? selectedclientTechnicien.photo : 'assets/img_3.png'" class="rounded-circle" width="150px" height="150px">
+      </div>
+    </div>
+    <div class="row mt-2 p-3 custom-border">
+      <div class="alert-danger" *ngFor="materielErrorMsg"> {{materielErrorMsg}} </div>
+        <div class="form-row col-md-12">
+          <div class="col-md-4">
+            <input type="text" class="form-control" placeholder="Code materiel" [(ngModel)]="codeMateriel" (input)="searchMateriel()">
+          </div>
+          <div class="col-md-4">
+            <input type="text" class="form-control" placeholder="Quantite" [(ngModel)]="quantie">
+          </div>
+          <div class="col-md-3">
+            <input type="text" class="form-control" placeholder="Designation" [(ngModel)]="searchedMateriel.designation">
+          </div>
+          <div class="col-1">
+            <button type="text" class="btn btn-success" (click)="AjouterLigneCommande()"><i class="fa fa-plus"></i></button>
+          </div>
+        </div>
+    </div>
+    <div class="row mt-2 p-3 custom-border" style="max-height: 200px;overflow-y: scroll" >
+      <div class="col-md-12">
+        <app-deatail-cmd></app-deatail-cmd>
+      </div>
+    </div>
+    <div class="row mt-2 p-3 custom-border" hidden>
+      <div class="col-md-12 text-right">
+        <h3>Total de la commane : 139,5</h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12 text-right mt-3">
+    <button class="btn btn-danger mr-3">
+      <i class="fa fa-ban" aria-hidden="true"></i>&nbsp;Annuler
+    </button>
+    <button class="btn btn-primary" [routerLink]="['/commandesclient']">
+      <i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp;Enregistrer
+    </button>
+  </div>
+</div>

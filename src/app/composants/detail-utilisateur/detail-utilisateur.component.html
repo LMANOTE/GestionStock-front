@@ -1,0 +1,82 @@
+<div class="row mb-1 mr-0  custom-border">
+
+  <div class="col-md-1 custom-border-right p-1 text-center mb-1 mt-1">
+    <img src="assets/Younes.png" width="100px" height="100px">
+  </div>
+
+  <div class="col-md-5 custom-border-right mb-1 mt-1">
+    <div class="col">
+      <div class="row">
+        <div class="col-md-1"><i class="fa fa-info-circle blue-color" aria-hidden="true"></i></div>
+        <div class="col-md-11">{{utilisateur.nom}}</div>
+      </div>
+      <div class="row">
+        <div class="col-md-1"><i class="fa fa-info-circle blue-color" aria-hidden="true"></i></div>
+        <div class="col-md-11">{{utilisateur.prenom}}</div>
+      </div>
+      <div class="row">
+        <div class="col-md-1"><i class="fa fa-phone blue-color" aria-hidden="true"></i></div>
+        <div class="col-md-11">{{utilisateur.num_tele}}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3 custom-border-right mb-1 mt-1">
+    <div class="col">
+      <div class="row">
+        <div class="col-md-1"><i class="fa fa-home blue-color" aria-hidden="true"></i></div>
+        <div class="col-md-10">{{utilisateur.adresse1}}</div>
+      </div>
+      <div class="row">
+        <div class="col-md-1"><i class="fa fa-map-marker blue-color" aria-hidden="true"></i></div>
+        <div class="col-md-10">{{utilisateur.codePostal}}&nbsp;{{utilisateur.ville}}</div>
+      </div>
+      <div class="row">
+        <div class="col-md-1"><i class="fa fa-globe blue-color" aria-hidden="true"></i></div>
+        <div class="col-md-10">{{utilisateur.pays}}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3 mb-1 mt-1">
+    <div class="row">
+      <div class="col-md-4">
+        <button type="button" class="btn btn-link" (click)="modifierUtilisateur()">
+          <i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Modifier
+        </button>
+      </div>
+      <div class="col-md-4">
+        <button type="button" class="btn btn-link text-danger" data-toggle="modal" [attr.data-target]="'#modalDeleteUser'+utilisateur.id">
+          <i class="fa fa-trash" aria-hidden="true"></i>&nbsp;Supprimer
+        </button>
+      </div>
+      <div class="col-md-4">
+        <button type="button" class="btn btn-link">
+          <i class="fa fa-list-alt" aria-hidden="true"></i>&nbsp;Details
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="modalDeleteUser{{ utilisateur.id }}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Confirmation</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Etes vous-sur de vouloir supprimer ce utilisateur?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            <i class="fa fa-ban" aria-hidden="true"></i>&nbsp;Annuler</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="confirmeretSupprimerUtilisateur()">
+            <i class="fa fa-trash" aria-hidden="true"></i>&nbsp;Supprimer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

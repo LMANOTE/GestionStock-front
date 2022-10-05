@@ -1,0 +1,93 @@
+<div class="col">
+  <div class="row m-3">
+    <div class="col-md-8 p-0">
+      <h1>Liste des categories</h1>
+    </div>
+    <div class="col-md-4" style="text-align: right">
+      <app-button-action
+        (clickEvent)="nouvelCategorie()"
+      ></app-button-action>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="row col-md-12 alert alert-danger" *ngIf="errorMsg">
+      {{ errorMsg }}
+    </div>
+    <div class="row custom-border mb-3 p-3 mr-4" *ngFor="let cat of listcategorie">
+      <div class="col-md-3 custom-border-right ">
+        {{cat.code}}
+      </div>
+      <div class="col-md-6 custom-border-right ">
+        {{cat.designation}}
+      </div>
+      <div class="col-md-3 ">
+        <div class="row">
+          <div class="col-md-4">
+            <button type="button" class="btn btn-link" (click)="modifierCategorie(cat.id!)">
+              <i class="fa fa-pencil" aria-hidden="true" ></i>&nbsp;Modifier
+            </button>
+          </div>
+          <div class="col-md-4" >
+            <button type="button" class="btn btn-link text-danger"  data-toggle="modal" data-target="#modalDeleteCat" (click)="selectcatPourSupprimer(cat.id!)">
+              <i class="fa fa-trash" aria-hidden="true"></i>&nbsp;Supprimer
+            </button>
+          </div>
+          <div class="col-md-4">
+            <button type="button" class="btn btn-link">
+              <i class="fa fa-list-alt" aria-hidden="true"></i>&nbsp;Details
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-3" *ngIf="listcategorie.length > 0">
+    <div class="col-md-12 text-center">
+      <app-pagination></app-pagination>
+    </div>
+  </div>
+</div>
+<!--Delete model-->
+<!--<div id="deleteEmployeeModal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form>
+        <div class="modal-header">
+          <h4 class="modal-title">Delete Department</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to delete department {{deleteCategorie?.designation}} ?</p>
+          <p class="text-warning"><small>This action cannot be undone.</small></p>
+        </div>
+        <div class="modal-footer">
+          <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+          <input type="submit" (click)="onDeleteCategorie(deleteCategorie?.id!)" class="btn btn-danger" value="Delete">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>-->
+<!-- Modal -->
+<div class="modal fade" id="modalDeleteCat" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Confirmation</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Etes vous-sur de vouloir supprimer cette categorie?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="annulerSuppresionCat()">
+          <i class="fa fa-ban" aria-hidden="true"></i>&nbsp;Annuler</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="confirmeretSupprimerCat()">
+          <i class="fa fa-trash" aria-hidden="true"></i>&nbsp;Supprimer</button>
+      </div>
+    </div>
+  </div>
+</div>
+

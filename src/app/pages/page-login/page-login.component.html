@@ -1,0 +1,33 @@
+<div class="bg"></div>
+<div class="container">
+  <div class="left">
+    <div class="p-0">
+        <img src="/assets/Onee.png" width="50px" height="200px">
+    </div>
+    <p class="title p-0" >
+        Plateforme de gestion d'entrées et sorties
+    </p>
+  </div>
+  <div class="vertical"></div>
+  <div class="right">
+    <div class="formBox">
+      <h1> CONNEXION </h1>
+      <form>
+        <p>
+          Nom d'utilisateur
+        </p>
+        <input type="text" id="userName" name="userName" #userName />
+        <p>
+          Mot de passe
+        </p>
+        <input type="Password" id="password" name="password" #password />
+        <div class="mb-3 d-flex justify-content-between">
+          <a [routerLink]="['/inscrire']" class="btn btn-link" style="color: #1178AC">S'inscrire</a>
+          <button type="button" class="btn-submit" [routerLink]="['/materiels']">
+            <i class="fa fa-check" aria-hidden="true"></i>&nbsp;Se connecter
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

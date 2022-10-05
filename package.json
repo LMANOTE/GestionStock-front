@@ -6,20 +6,32 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "start:local": "npm run gs-api && ng serve -- --proxyConfig-proxy.conf.json",
+    "gs-api": "npm run gs-api:create-dist && npm run gs-api:download && npm run gs-api:extract && npm run gs-api:swagger-gen",
+    "gs-api:create-dist": "mkdir C:\\Users\\HASBI\\Desktop\\HASBI-YOUNES\\ETUDES\\4iir\\STAGE\\Realisation\\Gestion_Entre_Sortie_Front\\tools\\swagger\\dist && mkdir C:\\Users\\HASBI\\Desktop\\HASBI-YOUNES\\ETUDES\\4iir\\STAGE\\Realisation\\Gestion_Entre_Sortie_Front\\tools\\swagger\\src",
+    "gs-api:download": "copy C:\\Users\\HASBI\\Desktop\\HASBI-YOUNES\\ETUDES\\4iir\\STAGE\\Realisation\\Gestion_Entre_Sortie\\target\\Gestion_Entre_Sortie-0.0.1-SNAPSHOT.jar C:\\Users\\HASBI\\Desktop\\HASBI-YOUNES\\ETUDES\\4iir\\STAGE\\Realisation\\Gestion_Entre_Sortie_Front\\tools\\swagger\\dist && copy C:\\Users\\HASBI\\Desktop\\HASBI-YOUNES\\ETUDES\\4iir\\STAGE\\Realisation\\Gestion_Entre_Sortie\\target\\swagger.json C:\\Users\\HASBI\\Desktop\\HASBI-YOUNES\\ETUDES\\4iir\\STAGE\\Realisation\\Gestion_Entre_Sortie_Front\\tools\\swagger\\src",
+    "gs-api:extract": "node C:\\Users\\HASBI\\Desktop\\HASBI-YOUNES\\ETUDES\\4iir\\STAGE\\Realisation\\Gestion_Entre_Sortie_Front\\tools\\swagger\\src\\swagger.json 0.0.1-SNAPSHOT.jar",
+    "gs-api:swagger-gen": "C:\\Users\\HASBI\\Desktop\\HASBI-YOUNES\\ETUDES\\4iir\\STAGE\\Realisation\\Gestion_Entre_Sortie_Front\\node_modules\\.bin\\ng-swagger-gen -i C:\\Users\\HASBI\\Desktop\\HASBI-YOUNES\\ETUDES\\4iir\\STAGE\\Realisation\\Gestion_Entre_Sortie_Front\\tools\\swagger\\src\\swagger.json -o C:\\Users\\HASBI\\Desktop\\HASBI-YOUNES\\ETUDES\\4iir\\STAGE\\Realisation\\Gestion_Entre_Sortie_Front\\src\\gs-api\\src"
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^14.0.0",
-    "@angular/common": "^14.0.0",
+    "@angular/animations": "~14.2.1",
+    "@angular/common": "~14.2.1",
     "@angular/compiler": "^14.0.0",
     "@angular/core": "^14.0.0",
     "@angular/forms": "^14.0.0",
     "@angular/platform-browser": "^14.0.0",
     "@angular/platform-browser-dynamic": "^14.0.0",
     "@angular/router": "^14.0.0",
+    "@fortawesome/fontawesome-free": "^6.2.0",
+    "bootstrap": "^4.6.0",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.6.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
+    "xlsx": "^0.18.5",
+    "xslx": "^1.0.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
@@ -33,6 +45,8 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
+    "ng-packagr": "^14.2.1",
+    "ng-swagger-gen": "^1.7.0-b",
     "typescript": "~4.7.2"
   }
 }

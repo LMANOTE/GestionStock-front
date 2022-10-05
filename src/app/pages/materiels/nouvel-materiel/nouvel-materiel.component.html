@@ -1,0 +1,55 @@
+<div class="col mb-3">
+  <div class="col-md-12 mb-3 mt-3">
+    <button (click)="fileInput.click()"  style="background-color: transparent;border: none;">
+      <img [src]="imgUrl" class="rounded-circle" width="200px" height="200px">
+      <input hidden type="file" #fileInput (change)="OnFileInput(fileInput.files)">
+    </button>
+  </div>
+  <hr>
+  <div class="col-md-12">
+    <div class="col-md-12 mb-3">
+      <h2><i class="fa fa-info-circle blue-color" aria-hidden="true"></i>&nbsp;Information de materiel</h2>
+    </div>
+
+    <div class="col-md-12">
+      <form>
+        <div class="row mb-3">
+          <div class="col">
+            <input type="text" class="form-control" name="codeMateriel" [(ngModel)]="materiel.codeMateriel" placeholder="Code ONEE">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" name="designation" [(ngModel)]="materiel.designation" placeholder="Designation">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col">
+            <input type="text" class="form-control" name="numeroSerie" [(ngModel)]="materiel.numeroSerie" placeholder="Numero de serie">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" name="marque" [(ngModel)]="materiel.marque" placeholder="Marque">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col">
+            <input type="text" class="form-control" name="qantite" [(ngModel)]="materiel.model" placeholder="Model">
+          </div>
+          <div class="col">
+           <select class="form-control" (change)="change($event)" name="categorie" [ngModel]="categorie.id" >
+              <option >Selectionner une categorie</option>
+              <option *ngFor="let cat of listcategorie" [value]="cat.id">{{cat.designation}}</option>
+            </select>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="col-md-12" style="text-align: right">
+    <button class="btn btn-danger mr-3" (click)="cancel()">
+      <i class="fa fa-ban" aria-hidden="true"></i>&nbsp;Annuler
+    </button>
+    <button class="btn btn-primary" (click)="enregistrerMateriel()">
+      <i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp;Enregistrer
+    </button>
+  </div>
+</div>
